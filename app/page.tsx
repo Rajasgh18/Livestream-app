@@ -1,10 +1,10 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import { UserButton } from "@clerk/nextjs";
 
 export default function Home() {
   return (
-    <Button size={"lg"}>
-      Click Me
-    </Button>
+    <div>
+      <h2>Dashboard</h2>
+      <UserButton/>
+    </div>
   );
 }
