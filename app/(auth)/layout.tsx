@@ -1,4 +1,4 @@
-import {Logo} from "./_components/Logo"
+import {Logo} from "./_components/logo"
 
 const authLayout = (
   { children }: { children: React.ReactNode }
