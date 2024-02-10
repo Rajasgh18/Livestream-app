@@ -5,6 +5,7 @@ import { useSidebar } from "@/store/use-sidebar"
 import { RecommendedSkeleton } from "./recommended";
 import { useIsClient } from "usehooks-ts";
 import { ToggleSkeleton } from "./toggle";
+import { FollowingSkeleton } from "./following";
 
 
 interface WrapperProps {
@@ -22,6 +23,7 @@ export const Wrapper = ({ children }: WrapperProps) => {
         )}>
             <ToggleSkeleton />
             <div className="space-y-4 pt-4 lg:pt-0">
+                <FollowingSkeleton />
                 <RecommendedSkeleton />
             </div>
         </aside>
