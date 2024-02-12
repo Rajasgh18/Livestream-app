@@ -6,7 +6,11 @@ import { UserItem, UserItemSkeleton } from "./user-item";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface FollowingProps {
-    data: (Follow & { following: User })[];
+    data: (Follow & {
+        following: User & {
+            stream: {isLive: boolean} | null;
+        }
+    })[];
 }
 
 export const Following = ({ data }: FollowingProps) => {
@@ -23,7 +27,7 @@ export const Following = ({ data }: FollowingProps) => {
             )}
             <ul className="space-y-2 px-2">
                 {data.map(follower => (
-                    <UserItem key={follower.following.id} username={follower.following.username} imageUrl={follower.following.imageUrl} isLive={false} />
+                    <UserItem key={follower.following.id} username={follower.following.username} imageUrl={follower.following.imageUrl} isLive={follower.following.stream?.isLive} />
                 ))}
             </ul>
         </div>
