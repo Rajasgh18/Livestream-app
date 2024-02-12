@@ -62,7 +62,7 @@ model Stream {
   name      String  @db.Text
   thumbnail String? @db.Text
 
-  ingressUrl String? @unique
+  ingressId String? @unique
   serverUrl  String? @db.Text
   streamKey  String? @db.Text
 
@@ -78,6 +78,6 @@ model Stream {
   updateAt  DateTime @updatedAt
 
   @@index([userId])
-  @@index([ingressUrl])
+  @@index([ingressId])
   @@fulltext([name])
 }
