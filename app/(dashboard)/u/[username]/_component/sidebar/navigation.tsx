@@ -41,7 +41,7 @@ export const Navigation = () => {
         return (
             <div className="pt-2 lg:pt-0">
                 {[...Array(4)].map((_, i) => (
-                    <NavItemSkeleton />
+                    <NavItemSkeleton key={i} />
                 ))}
             </div>
         );
