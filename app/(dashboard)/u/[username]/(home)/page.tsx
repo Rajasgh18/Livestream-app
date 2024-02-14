@@ -17,7 +17,7 @@ const CreatorDashboard = async ({ params }: CreatorDashboard) => {
 
     return (
         <div className="h-full">
-            <StreamPlayer user={user} stream={user.stream} isFollwing />
+            <StreamPlayer user={user} stream={user.stream} isFollowing />
         </div>
     );
 };
