@@ -8,6 +8,7 @@ import { useMediaQuery } from "usehooks-ts";
 import { ChatHeader } from "./chat-header";
 import { ChatForm } from "./chat-form";
 import { ChatList } from "./chat-list";
+import { ChatCommunity } from "./chat-community";
 
 interface ChatProps {
     hostName: string;
@@ -65,16 +66,25 @@ export const Chat = ({
     return (
         <div className="flex flex-col bg-background border-l border-b pt-0 h-[calc(100vh-64px)]">
             <ChatHeader />
-            <ChatList messages={reversedMessages} isHidden={isHidden}/>
             {variant === ChatVariant.CHAT && (
-                <ChatForm
-                    onSubmit={onSubmit}
-                    value={value}
-                    onChange={onChange}
+                <>
+                    <ChatList messages={reversedMessages} isHidden={isHidden} />
+                    <ChatForm
+                        onSubmit={onSubmit}
+                        value={value}
+                        onChange={onChange}
+                        isHidden={isHidden}
+                        isFollowersOnly={isChatFollowersOnly}
+                        isDelayed={isChatDelayed}
+                        isFollowing={isFollowing}
+                    />
+                </>
+            )}
+            {variant === ChatVariant.COMMUNITY && (
+                <ChatCommunity
+                    hostName={hostIdentity}
+                    viewerName={viewerName}
                     isHidden={isHidden}
-                    isFollowersOnly={isChatFollowersOnly}
-                    isDelayed={isChatDelayed}
-                    isFollowing={isFollowing}
                 />
             )}
         </div>
