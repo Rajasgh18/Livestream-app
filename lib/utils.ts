@@ -15,6 +15,5 @@ export const stringToColor = (str: string) => {
     const value = (hash >> (i * 8) & 0xFF);
     color += ("00" + value.toString(16)).substr(-2);
   }
-  console.log(color)
   return color;
 }
