@@ -66,6 +66,7 @@ export const StreamPlayer = ({
                 <div className={cn(
                     "col-span-1 translate-x-0 transition-all duration-1000",
                     collapsed && "hidden",
+                    // !matches && "fixed top-[64px] right-0"
                 )}>
                     <Chat
                         viewerName={name}
