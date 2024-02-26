@@ -11,9 +11,13 @@ import { ChatToggle } from "./chat-toggle";
 import { useMediaQuery } from "usehooks-ts";
 import { Header, HeaderSkeleton } from "./header";
 import { InfoCard } from "./info-card";
+import { AboutCard } from "./about-card";
 
 interface StreamPlayerProps {
-    user: User & { stream: Stream | null };
+    user: User & {
+        stream: Stream | null,
+        _count: { followedBy: number },
+    };
     stream: Stream;
     isFollowing: boolean;
 }
@@ -46,7 +50,7 @@ export const StreamPlayer = ({
                     collapsed && "lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2"
                 )}
             >
-                <div className="space-y-4 transition-all col-span-1 lg:col-span-2 xl:col-span-2 2xl:col-span-5 lg:overflow-y-auto hidden-scrollbar pb-10">
+                <div className="space-y-4 col-span-1 lg:col-span-2 xl:col-span-2 2xl:col-span-5 lg:overflow-y-auto hidden-scrollbar pb-10">
                     <Video hostName={user.username} hostIdentity={user.id} />
                     <Header
                         hostName={user.username}
@@ -62,9 +66,16 @@ export const StreamPlayer = ({
                         name={stream.name}
                         thumbnailUrl={stream.thumbnail}
                     />
+                    <AboutCard
+                        hostName={user.username}
+                        hostIdentity={user.id}
+                        viewerIdentity={identity}
+                        bio={user.bio}
+                        followedByCount={user._count.followedBy}
+                    />
                 </div>
                 <div className={cn(
-                    "col-span-1 translate-x-0 transition-all duration-1000",
+                    "col-span-1",
                     collapsed && "hidden",
                     // !matches && "fixed top-[64px] right-0"
                 )}>
