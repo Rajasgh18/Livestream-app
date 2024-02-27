@@ -25,7 +25,7 @@ export const AboutCard = ({
         <div className="px-4">
             <div className="group rounded-xl bg-background p-4 flex flex-col gap-y-3">
                 <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-x-2 font-semibold text-lg lg:text-2xl">
+                    <div className="flex items-center gap-x-2 font-semibold text-xl">
                         About {hostName}
                         <VerifiedMark />
                     </div>
