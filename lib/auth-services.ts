@@ -9,7 +9,7 @@ export const getSelf = async () => {
             externalUserId: self.id
         }
     })
-    if (!user) throw new Error("Not found");
+    if (!user) throw new Error("User not found");
 
     return user;
 }
