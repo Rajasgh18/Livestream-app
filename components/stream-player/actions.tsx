@@ -46,9 +46,9 @@ export const Actions = ({
         if (isHost) return;
 
         if (isFollowing)
-            handleUnFollow;
+            handleUnFollow();
         else
-            handleFollow;
+            handleFollow();
 
     };
 
