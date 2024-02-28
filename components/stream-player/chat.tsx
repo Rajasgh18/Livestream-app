@@ -82,7 +82,7 @@ export const Chat = ({
             )}
             {variant === ChatVariant.COMMUNITY && (
                 <ChatCommunity
-                    hostName={hostIdentity}
+                    hostName={hostName}
                     viewerName={viewerName}
                     isHidden={isHidden}
                 />
